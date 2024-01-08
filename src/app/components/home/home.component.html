@@ -1,0 +1,17 @@
+<StackLayout>
+    <TextField hint="Enter city name" [(ngModel)]="city"></TextField>
+    <Button text="Submit" (tap)="getWeather()"></Button>
+
+    <ActivityIndicator [busy]="isProcessing" />
+    
+    <StackLayout 
+        *ngIf="result">
+        
+        <ns-weather
+        [data]="result">
+        </ns-weather>
+
+        <Button text="Get Forecast" (tap)="goToForecast()"></Button>
+        
+    </StackLayout>
+</StackLayout>

@@ -1,0 +1,139 @@
+<AbsoluteLayout>
+    <!-- Search Details -->
+    <GridLayout 
+        top="0"
+        left="0"
+        rows="auto, auto, auto, auto, auto" 
+        columns="150, *">
+
+        <Label row="0" col="0" textAlignment="right" text="Searched city : "></Label>
+        <Label row="0" col="1" text="{{ data.address }}"></Label>
+       
+        <Label row="1" col="0" textAlignment="right" text="Resolved Address : "></Label>
+        <Label row="1" col="1" text="{{ data.resolvedAddress }}"></Label>
+
+        <Label row="2" col="0" textAlignment="right" text="Latitude : "></Label>
+        <Label row="2" col="1" text="{{ data.latitude }}"></Label>
+        
+        <Label row="3" col="0" textAlignment="right" text="Longitude : "></Label>
+        <Label row="3" col="1" text="{{ data.longitude }}"></Label>
+        
+        <Label row="4" col="0" textAlignment="right" text="Timezone : "></Label>
+        <Label row="4" col="1" text="{{ data.timezone }}"></Label>
+        
+    </GridLayout>
+
+    <!-- weather details -->
+    <GridLayout 
+        top="200"
+        left="50"
+        rows="auto, auto, auto"
+        columns="*, *">
+        <Label 
+            row="0"
+            col="0"
+            fontSize="50"
+            fontWeight="bold"
+            textAlignment="center"
+            text="{{ data.days[0].temp }}">
+        </Label>
+
+        <Label 
+            row="1"
+            col="0"
+            textAlignment="center"
+            text="{{ data.days[0].tempmax }}*c / {{ data.days[0].tempmin }}*c">
+        </Label>
+
+        <Label 
+            row="2"
+            col="0"
+            textAlignment="center"
+            text="{{ data.days[0].conditions }}">
+        </Label>   
+        
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'clear-day'"
+            src="~/assets/clear-day.png">
+        </Image>
+
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'partly-cloudy-day'"
+            src="~/assets/partly-cloudy-day.png">
+        </Image>
+
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'cloudy'"
+            src="~/assets/cloudy.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'rain'"
+            src="~/assets/rain.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'showers-day'"
+            src="~/assets/showers-day.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'showers-night'"
+            src="~/assets/showers-night.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'thunder-showers-day'"
+            src="~/assets/thunder-showers-day.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="data.days[0].icon == 'thunder-rain'"
+            src="~/assets/thunder-rain.png">
+        </Image>
+        
+        
+    </GridLayout>
+
+    <GridLayout 
+        top="350"
+        left="0"
+        rows="auto, auto, auto, auto, auto, auto, auto" 
+        columns="200, *">
+
+        <Label row="0" col="0" textAlignment="right" text="Real feel : "></Label>
+        <Label row="0" col="1" text="{{ data.days[0].feelslike }}*c"></Label>
+
+        <Label row="1" col="0" textAlignment="right" text="pressure : "></Label>
+        <Label row="1" col="1" text="{{ data.days[0].pressure }}mbar"></Label>
+        
+        <Label row="2" col="0" textAlignment="right" text="Humidity : "></Label>
+        <Label row="2" col="1" text="{{ data.days[0].humidity }}%"></Label>
+        
+        <Label row="3" col="0" textAlignment="right" text="Wind Speed : "></Label>
+        <Label row="3" col="1" text="{{ data.days[0].windspeed }}m/s"></Label>
+        
+        <Label row="4" col="0" textAlignment="right" text="sunrise : "></Label>
+        <Label row="4" col="1" text="{{ data.days[0].sunrise }}"></Label>
+        
+        <Label row="5" col="0" textAlignment="right" text="sunset : "></Label>
+        <Label row="5" col="1" text="{{ data.days[0].sunset }}"></Label>
+        
+        <Label row="6" col="0" textAlignment="right" text="uvindex : "></Label>
+        <Label row="6" col="1" text="{{ data.days[0].uvindex }}"></Label>
+    </GridLayout>
+
+    <!-- <Button text="Show forecast" nsRouterLink="../forecast"></Button> -->
+
+</AbsoluteLayout>

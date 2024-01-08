@@ -1,0 +1,149 @@
+
+<StackLayout>
+    <Label text="15-days weather forecast" fontWeight="bold" textAlignment="center" fontSize="30" textWrap="true"></Label>
+    <ActivityIndicator [busy]="isProcessing" />
+    <ScrollView orientation="horizontal" *ngIf="forecastData">
+        <StackLayout orientation="horizontal">
+            <StackLayout class="col">
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="date" 
+                    textAlignment="center">
+                </Label>
+
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="temp" 
+                    textAlignment="center">
+                </Label>
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="feels like"
+                    textAlignment="center">
+                </Label>
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="humidity" 
+                    textAlignment="center">
+                </Label>
+            
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="pressure" 
+                    textAlignment="center">
+                </Label>
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="windspeed" 
+                    textAlignment="center">
+                </Label>
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="sunrise" 
+                    textAlignment="center">
+                </Label>
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="sunset" 
+                    textAlignment="center">
+                </Label>
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="uvindex" 
+                    textAlignment="center">
+                </Label>            
+                
+                <Label 
+                    textTransform="capitalize" 
+                    fontWeight="bold" 
+                    text="condition" 
+                    textAlignment="center">
+                </Label>            
+            </StackLayout>
+
+            <StackLayout
+                class="col"
+                *ngFor="let d of forecastData.days">
+        
+                <Label text="{{ d.datetime }}" textAlignment="center"></Label>
+                <Label text="{{ d.temp }} *c" textAlignment="center"></Label>
+                <Label text="{{ d.feelslike }} *c" textAlignment="center"></Label>
+                <Label text="{{ d.humidity }} %" textAlignment="center"></Label>
+                <Label text="{{ d.pressure }} mbar" textAlignment="center"></Label>
+                <Label text="{{ d.windspeed }} m/s" textAlignment="center"></Label>
+                <Label text="{{ d.sunrise }}" textAlignment="center"></Label>
+                <Label text="{{ d.sunset }}" textAlignment="center"></Label>
+                <Label text="{{ d.uvindex }}" textAlignment="center"></Label>
+                <Label text="{{ d.conditions }}" textAlignment="center"></Label>
+                <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'clear-day'"
+            src="~/assets/clear-day.svg">
+        </Image>
+
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'partly-cloudy-day'"
+            src="~/assets/partly-cloudy-day.png">
+        </Image>
+
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'cloudy'"
+            src="~/assets/cloudy.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'rain'"
+            src="~/assets/rain.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'showers-day'"
+            src="~/assets/showers-day.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'showers-night'"
+            src="~/assets/showers-night.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'thunder-showers-day'"
+            src="~/assets/thunder-showers-day.png">
+        </Image>
+        <Image 
+            col="1" 
+            rowSpan="3" 
+            *ngIf="d.icon == 'thunder-rain'"
+            src="~/assets/thunder-rain.png">
+        </Image>
+                
+                
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</StackLayout>
